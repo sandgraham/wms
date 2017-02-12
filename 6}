@@ -1,0 +1,6 @@
+      invoke  active_record
+      create    db/migrate/20170212205701_create_places.rb
+   identical    app/models/place.rb
+      invoke    test_unit
+   identical      test/models/place_test.rb
+    conflict      test/fixtures/places.yml
