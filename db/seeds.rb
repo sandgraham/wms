@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'csv'    
+
+CSV.foreach(
+  Rails.root.join('db', 'seeds', 'worldcities.csv'),
+  :headers => :first_row
+) do |row|
+  Place.create(
+    :name => row['city'],
+    :latitude => row['lat'],
+    :longitude => row['lng'],
+  )
+end
