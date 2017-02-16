@@ -14,6 +14,7 @@ CSV.foreach(
 ) do |row|
   Place.create(
     :name => row['city'],
+    :country_code => row['iso2'],
     :latitude => row['lat'],
     :longitude => row['lng'],
   )
