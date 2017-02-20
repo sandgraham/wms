@@ -13,25 +13,17 @@
 ActiveRecord::Schema.define(version: 20170212210916) do
 
   create_table "journeys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "start_place_id"
-    t.integer  "end_place_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.boolean  "status"
-    t.text     "story",          limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["end_place_id"], name: "index_journeys_on_end_place_id", using: :btree
-    t.index ["start_place_id"], name: "index_journeys_on_start_place_id", using: :btree
-  end
-
-  create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",         limit: 80
-    t.string   "country_code", limit: 3
-    t.decimal  "latitude",                precision: 10, scale: 6
-    t.decimal  "longitude",               precision: 10, scale: 6
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.integer  "status",                                                 default: 0
+    t.integer  "year"
+    t.decimal  "start_latitude",                precision: 10, scale: 6
+    t.decimal  "start_longitude",               precision: 10, scale: 6
+    t.string   "start_name",      limit: 200
+    t.decimal  "end_latitude",                  precision: 10, scale: 6
+    t.decimal  "end_longitude",                 precision: 10, scale: 6
+    t.string   "end_name",        limit: 200
+    t.text     "story",           limit: 65535
+    t.datetime "created_at",                                                         null: false
+    t.datetime "updated_at",                                                         null: false
   end
 
 end
